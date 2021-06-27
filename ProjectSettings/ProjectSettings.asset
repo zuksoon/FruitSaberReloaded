@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
+  companyName: PawloOrazKamil
   productName: FruitSaberReloaded
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -132,9 +132,8 @@ PlayerSettings:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 11400000, guid: 78aa3f27f4e9e754d9219cfdb1bc4f17, type: 2}
   - {fileID: 0}
-  - {fileID: -4846796657720169330, guid: 728844266c282e94793a81b9f3c521e5, type: 2}
+  - {fileID: 11400000, guid: 78aa3f27f4e9e754d9219cfdb1bc4f17, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -153,7 +152,7 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
     Android: com.DefaultCompany.FruitSaberReloaded
-    Standalone: com.DefaultCompany.FruitSaberReloaded
+    Standalone: com.PawloOrazKamil.FruitSaberReloaded
   buildNumber:
     Standalone: 0
     iPhone: 0

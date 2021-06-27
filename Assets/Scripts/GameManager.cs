@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
+using System.IO;
 
 public class GameManager : MonoBehaviour {
     [Header("Gameplay")] public bool godMode;
@@ -17,6 +18,7 @@ public class GameManager : MonoBehaviour {
     [Header("UI elements")] public TextMeshPro scoreText;
     public TextMeshPro missText;
     public TextMeshPro comboText;
+    public TextMeshPro maxScoreText;
 
     [Header("Difficulty")] public GameObject fruitSpawner;
     public float timeToSpeedUp;
@@ -43,6 +45,9 @@ public class GameManager : MonoBehaviour {
         speedUpTime = 0.0f;
         fruitSpawner.GetComponent<FruitSpawner>().SetTimer(startSpeed);
         fruitSpawner.GetComponent<FruitSpawner>().SetMaxSpeed(maxSpeed);
+        StreamReader SR = new StreamReader("Assets/MaxScore.txt");
+        maxScoreText.text = SR.ReadToEnd();
+        SR.Close();
     }
 
     private void Update() {
@@ -91,6 +96,16 @@ public class GameManager : MonoBehaviour {
         comboText.SetText($"x{combo}");
         scoreText.SetText(points.ToString());
         UpdateHealthBar(HealChangeAction.GAIN, hpDrainPerScore * 100 / healthFactor);
+        if(points > int.Parse(maxScoreText.text))
+        {
+            StreamWriter SW = new StreamWriter("Assets/MaxScore.txt");
+            SW.WriteLine(points.ToString());
+            SW.Close();
+
+            StreamReader SR = new StreamReader("Assets/MaxScore.txt");
+            maxScoreText.text = SR.ReadToEnd();
+            SR.Close();
+        }
         // scoreTracker.Play("ScoreTrackerPop", 0, 0);
         // comboTracker.Play("ComboTrackerPop", 0, 0);
     }

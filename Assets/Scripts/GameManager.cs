@@ -51,8 +51,13 @@ public class GameManager : MonoBehaviour {
         speedUpTime += Time.deltaTime;
 
         if (speedUpTime >= timeToSpeedUp) {
-        speedUpTime = speedUpTime - timeToSpeedUp;
-        fruitSpawner.GetComponent<FruitSpawner>().ReduceTimer(speedUp);
+            speedUpTime = speedUpTime - timeToSpeedUp;
+            fruitSpawner.GetComponent<FruitSpawner>().ReduceTimer(speedUp);
+        }
+
+        if (health <= 0)
+        {
+            GameOver();
         }
     }
 
